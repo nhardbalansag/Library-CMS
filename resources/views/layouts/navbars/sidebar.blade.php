@@ -4,11 +4,6 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
-  <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
-    </a>
-  </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
@@ -17,10 +12,12 @@
             <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
+
+      {{-- user information handling --}}
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Laravel Examples') }}
+        <i class="fas fa-user"></i>
+          <p>User Information
             <b class="caret"></b>
           </p>
         </a>
@@ -33,7 +30,7 @@
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
+              <a class="nav-link" href="/user">
                 <span class="sidebar-mini"> UM </span>
                 <span class="sidebar-normal"> {{ __('User Management') }} </span>
               </a>
@@ -41,46 +38,110 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
+
+      {{-- books handling--}}
+      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#books" aria-expanded="true">
+        <i class="fas fa-book"></i>
+          <p>Books
+            <b class="caret"></b>
+          </p>
         </a>
+        <div class="collapse show" id="books">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'bookCategory' ? ' active' : '' }}">
+                <a class="nav-link" href="/book/add-book-category">
+                  <span class="sidebar-mini"> <i class="fas fa-plus-square"></i> </span>
+                  <span class="sidebar-normal">{{ __('Add Book Category') }} </span>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'book' ? ' active' : '' }}">
+                <a class="nav-link" href="/book/add-book">
+                  <span class="sidebar-mini"> <i class="fas fa-plus-square"></i> </span>
+                  <span class="sidebar-normal">{{ __('Add Book') }} </span>
+                </a>
+              </li>
+            <li class="nav-item{{ $activePage == 'bookList' ? ' active' : '' }}">
+                <a class="nav-link" href="/book/book-list">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Book List') }}</p>
+                </a>
+              </li>
+          </ul>
+        </div>
       </li>
+
+      {{-- borrowing --}}
+
+      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#borrowing" aria-expanded="true">
+        <i class="fas fa-bookmark"></i>
+          <p>Borrowing
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse show" id="borrowing">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('table') }}">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Available Books') }}</p>
+                </a>
+              </li>
+            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('table') }}">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Borrowed Books') }}</p>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('table') }}">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Returned Book') }}</p>
+                </a>
+              </li>
+          </ul>
+        </div>
+      </li>
+
+       {{-- Students --}}
+
+       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#Students" aria-expanded="true">
+        <i class="fas fa-users"></i>
+          <p>Students
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse show" id="Students">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('profile.edit') }}">
+                  <span class="sidebar-mini"> <i class="fas fa-plus-square"></i> </span>
+                  <span class="sidebar-normal">{{ __('Add Student') }} </span>
+                </a>
+              </li>
+            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('table') }}">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Student Account Information') }}</p>
+                </a>
+              </li>
+          </ul>
+        </div>
+      </li>
+
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('typography') }}">
           <i class="material-icons">library_books</i>
             <p>{{ __('Typography') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('icons') }}">
-          <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('map') }}">
-          <i class="material-icons">location_ons</i>
-            <p>{{ __('Maps') }}</p>
-        </a>
-      </li>
+
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('notifications') }}">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('language') }}">
-          <i class="material-icons">language</i>
-          <p>{{ __('RTL Support') }}</p>
-        </a>
-      </li>
-      <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
-        <a class="nav-link text-white bg-danger" href="{{ route('upgrade') }}">
-          <i class="material-icons text-white">unarchive</i>
-          <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li>
     </ul>
