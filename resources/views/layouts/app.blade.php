@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
+    <title>{{ env('APP_NAME') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -37,7 +37,7 @@
               <li class="header-title"> Sidebar Filters</li>
               <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger active-color">
-                  <div class="badge-colors ml-auto mr-auto">
+                  <div class="ml-auto mr-auto badge-colors">
                     <span class="badge filter badge-purple " data-color="purple"></span>
                     <span class="badge filter badge-azure" data-color="azure"></span>
                     <span class="badge filter badge-green" data-color="green"></span>
@@ -92,7 +92,7 @@
                 <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
               </li>
               <li class="header-title">Thank you for 95 shares!</li>
-              <li class="button-container text-center">
+              <li class="text-center button-container">
                 <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
                 <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
                 <br>
