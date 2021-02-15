@@ -1,21 +1,11 @@
-@extends('layouts.app', ['activePage' => 'bookList', 'titlePage' => __('Book')])
-@section('content')
-@extends('layouts.app', ['activePage' => 'bookList', 'titlePage' => __('Table List')])
+@extends('layouts.app', ['activePage' => 'bookListavailable', 'titlePage' => __('Table List')])
 
 @section('content')
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div>
-                @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        <span>
-                        <b> Success - </b> {{ session('message') }}</span>
-                    </div>
-                @endif
-            </div>
             <div class="col-md-12">
-                <form action="/search-book-list" method="GET" class="form-horizontal">
+                <form action="/search-available-books" method="GET" class="form-horizontal">
                     <div class="input-group no-border w-50">
                         <input type="text" name="bookSearch" class="form-control" placeholder="Search...">
                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -62,4 +52,5 @@
         </div>
     </div>
 </div>
+
 @endsection

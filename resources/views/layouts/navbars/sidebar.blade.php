@@ -82,8 +82,8 @@
         </a>
         <div class="collapse show" id="borrowing">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
+            <li class="nav-item{{ $activePage == 'bookListavailable' ? ' active' : '' }}">
+                <a class="nav-link" href="/book/book-list-available">
                   <i class="material-icons">content_paste</i>
                     <p>{{ __('Available Books') }}</p>
                 </a>
@@ -129,20 +129,6 @@
               </li>
           </ul>
         </div>
-      </li>
-
-      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('typography') }}">
-          <i class="material-icons">library_books</i>
-            <p>{{ __('Typography') }}</p>
-        </a>
-      </li>
-
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('notifications') }}">
-          <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
       </li>
     </ul>
   </div>
