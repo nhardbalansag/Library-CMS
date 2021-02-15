@@ -23,16 +23,6 @@
                                 <label class="w-full py-2 font-semibold text-gray-800 bg-white border-black rounded shadow-xs cursor-pointer border-bottom hover:bg-gray-100">
                                     <input type="file"
                                         wire:model="image_path"
-                                        x-ref="image_path"
-                                        id="image_path"
-                                        x-on:change="
-                                            photoName = $refs.image_path.files[0].name;
-                                            const reader = new FileReader();
-                                            reader.onload = (e) => {
-                                                photoPreview = e.target.result;
-                                            };
-                                            reader.readAsDataURL($refs.image_path.files[0]);
-                                        "
                                     hidden>
                                     <div>
                                         <div class="row col-12 d-flex justify-content-center align-items-center"  style="color:#1b3295">
@@ -65,7 +55,7 @@
                                                         @if ($image_path)
                                                         <p class="text-xs text-truncate text-muted">{{ $image_path->temporaryUrl() }}</p>
                                                         @endif
-                                                        @error('image_path') <p class="ml-2 text-xs italic text-red-500">{{$message}}</p> @enderror
+                                                        @error('image_path') <p class="ml-2 text-xs italic text-red-500">{{$image_path}}</p> @enderror
                                                     </div>
                                                 </div>
                                             @endif
@@ -100,6 +90,15 @@
                                     <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
                                         <input wire:model.defer="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="email" type="text"   placeholder="{{ __('Description') }}"  required />
                                         @error('description') <span class="error text-danger">{{ $description }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('Inventory Count') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('book_inventory_count') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="book_inventory_count" class="form-control{{ $errors->has('book_inventory_count') ? ' is-invalid' : '' }}" name="email" type="number"  required />
+                                        @error('book_inventory_count') <span class="error text-danger">{{ $book_inventory_count }}</span> @enderror
                                     </div>
                                 </div>
                             </div>

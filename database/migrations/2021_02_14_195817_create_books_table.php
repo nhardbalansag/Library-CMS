@@ -26,6 +26,7 @@ class CreateBooksTable extends Migration
             $table->string('description');
             $table->string('status');
             $table->string('image_path');
+            $table->integer('book_inventory_count');
             $table->timestamps();
         });
     }

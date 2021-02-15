@@ -14,7 +14,8 @@ class Book extends Model
         'title',
         'description',
         'status',
-        'image_path'
+        'image_path',
+        'book_inventory_count'
     ];
 
 }

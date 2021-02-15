@@ -12,14 +12,15 @@ class CreateBook extends Component
 
     use WithFileUploads;
 
-    public $BookCategoryId, $title, $description, $status, $image_path;
+    public $BookCategoryId, $title, $description, $status, $image_path, $book_inventory_count;
 
     public $formdata = [
         'BookCategoryId'  => 'required|numeric',
         'title'  => 'required',
         'description'  => 'required',
         'status'  => 'required',
-        'image_path'  => 'required|image'
+        'image_path'  => 'required|image',
+        'book_inventory_count' => 'required|numeric|min:1'
     ];
 
     public function render()
@@ -33,15 +34,18 @@ class CreateBook extends Component
 
         $validatedData = $this->validate($this->formdata);
 
+        $thumbnail = $this->image_path->store('photos');
+
         $formData = [
             'BookCategoryId' =>  $this->BookCategoryId,
             'title' => $this->title,
             'description' => $this->description,
             'status' => $this->status,
-            'image_path' => $this->image_path->store('photos')
+            'image_path' => $thumbnail,
+            'book_inventory_count' => $this->book_inventory_count
         ];
 
-        Book::create($validatedData);
+        Book::create($formData);
 
         session()->flash('message', 'Book created successfully');
     }
