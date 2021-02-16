@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\DB;
 class BookController extends Controller
 {
     public function createBookCategory(){
-        return view('pages.book-category.create-book-category');
+        return view('pages.Book-category.create-book-category');
     }
 
     public function createBook(){
-        return view('pages.book.create-book');
+        return view('pages.Book.create-book');
     }
 
     public function bookList(){
@@ -23,7 +23,7 @@ class BookController extends Controller
                         ->select('books.*', 'book_categories.title as bookCategoryTitle')
                         ->paginate(10);
 
-        return view('pages.book.book-list', $data);
+        return view('pages.Book.book-list', $data);
     }
 
     public function AvailableBooks(){
@@ -34,7 +34,7 @@ class BookController extends Controller
                         ->where('books.status', 'publish')
                         ->paginate(10);
 
-        return view('pages.book.book-list-available', $data);
+        return view('pages.Book.book-list-available', $data);
     }
 
     public function searchbooks(Request $request){
@@ -48,7 +48,7 @@ class BookController extends Controller
                         ->where('books.status', 'publish')
                         ->paginate(10);
 
-        return view('pages.book.book-list-available', $data);
+        return view('pages.Book.book-list-available', $data);
     }
 
     public function searchbookList(Request $request){
@@ -61,6 +61,6 @@ class BookController extends Controller
                         ->select('books.*', 'book_categories.title as bookCategoryTitle')
                         ->paginate(10);
 
-        return view('pages.book.book-list', $data);
+        return view('pages.Book.book-list', $data);
     }
 }
