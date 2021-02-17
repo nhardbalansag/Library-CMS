@@ -18,23 +18,12 @@ class BookController extends Controller
 
     public function bookList(){
 
-        $data['books']  = DB::table('books')
-                        ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
-                        ->select('books.*', 'book_categories.title as bookCategoryTitle')
-                        ->paginate(10);
-
-        return view('pages.Book.book-list', $data);
+        return view('pages.Book.book-list');
     }
 
     public function AvailableBooks(){
 
-        $data['books']  = DB::table('books')
-                        ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
-                        ->select('books.*', 'book_categories.title as bookCategoryTitle')
-                        ->where('books.status', 'publish')
-                        ->paginate(10);
-
-        return view('pages.Book.book-list-available', $data);
+        return view('pages.Book.book-list-available');
     }
 
     public function searchbooks(Request $request){
@@ -62,5 +51,26 @@ class BookController extends Controller
                         ->paginate(10);
 
         return view('pages.Book.book-list', $data);
+    }
+
+    public function bookListBorrowed(){
+
+        return view('pages.Book.borrowed-books');
+    }
+
+    public function bookListReturned(){
+
+        return view('pages.Book.returned-books');
+    }
+
+    public function studentListBorrowed(){
+
+        return view('pages.Book.borrowed-student');
+    }
+
+
+    public function studentBookBorrowed($id){
+
+        return view('pages.Book.student-book-borrowed', ['id' => $id]);
     }
 }

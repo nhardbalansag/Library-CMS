@@ -16,8 +16,8 @@
 
 <div id="myModal" class=" loadingstate modal d-block d-flex justify-content-center align-items-center">
     <div>
-    <div class="bg-white spinner-grow" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
+    {{-- <div class="bg-white spinner-grow" style="width: 3rem; height: 3rem;" role="status"> --}}
+        <p class="text-white ">Loading Please wait...</p>
+    {{-- </div> --}}
     </div>
 </div>
