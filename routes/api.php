@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\StudentController;
+use App\Http\Controllers\API\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register-student', [StudentController::class, 'register']);
 Route::post('/login-student', [StudentController::class, 'login']);
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::middleware('user:student')->group(function(){
-
-
-
-    });
+//AUTH
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('/view-all-available-books/{limit}', [BookController::class, 'getAvailableBooks']);
 });
