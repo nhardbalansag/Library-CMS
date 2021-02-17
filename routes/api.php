@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/register-student', [StudentController::class, 'register']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::middleware('user:student')->group(function(){
+
 
 
     });
