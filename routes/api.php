@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/register-student', [StudentController::class, 'register']);
+Route::post('/login-student', [StudentController::class, 'login']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::middleware('user:student')->group(function(){
