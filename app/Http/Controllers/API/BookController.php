@@ -19,4 +19,16 @@ class BookController extends Controller
 
         return response()->json($data, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
+
+    public function ViewOneBook($id){
+
+        $data = DB::table('books')
+            ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
+            ->select('books.*', 'book_categories.title as bookCategoryTitle')
+            ->where('books.status', 'publish')
+            ->where('books.id', $id)
+            ->first();
+
+        return response()->json($data, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
 }
