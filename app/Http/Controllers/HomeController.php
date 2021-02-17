@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     /**
@@ -21,6 +21,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $data['bookBorrowedCount'] = DB::table('borrow_books')
+                                ->where('status', 'borrowed')
+                                ->count();
+
+        $data['studentCount'] = DB::table('users')
+                            ->where('role', 'student')
+                            ->count();
+
+        return view('dashboard', $data);
     }
 }
