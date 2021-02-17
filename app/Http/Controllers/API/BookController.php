@@ -51,7 +51,7 @@ class BookController extends Controller
         $data = DB::table('borrow_books')
             ->join('books', 'books.id', '=', 'borrow_books.book_id')
             ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
-            ->select('books.*', 'book_categories.title as bookCategoryTitle', 'borrow_books.status as borrowStatus', 'borrow_books.created_at as dateBorrowed')
+            ->select('books.*', 'book_categories.title as bookCategoryTitle','borrow_books.id as borrowId', 'borrow_books.status as borrowStatus', 'borrow_books.created_at as dateBorrowed')
             ->where('borrow_books.user_id', Auth::user()->id)
             ->paginate($limit);
 
