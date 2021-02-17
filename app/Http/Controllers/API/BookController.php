@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Student\BorrowBook;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -30,5 +31,17 @@ class BookController extends Controller
             ->first();
 
         return response()->json($data, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+
+    public function getBook(Request $request){
+
+        BorrowBook::create([
+            'book_id' => $request->bookId,
+            'user_id' => Auth::user()->id,
+            'status' => 'Borrowed',
+        ]);
+
+        return response()->json(true, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 }

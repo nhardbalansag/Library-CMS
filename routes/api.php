@@ -27,4 +27,5 @@ Route::post('/login-student', [StudentController::class, 'login']);
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('/view-all-available-books/{limit}', [BookController::class, 'getAvailableBooks']);
     Route::get('/view-one-available-book/{id}', [BookController::class, 'ViewOneBook']);
+    Route::post('/get-book', [BookController::class, 'getBook']);
 });
