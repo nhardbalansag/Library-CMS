@@ -10,7 +10,15 @@ class NavigationController extends Controller
 {
     public function home(){
 
-        return view('dashboard');
+        $data['bookBorrowedCount'] = DB::table('borrow_books')
+                                ->where('status', 'borrowed')
+                                ->count();
+
+        $data['studentCount'] = DB::table('users')
+                            ->where('role', 'student')
+                            ->count();
+
+        return view('dashboard', $data);
     }
 
     public function userList(){

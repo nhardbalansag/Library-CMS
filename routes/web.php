@@ -45,8 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/book/book-list-available', [BookController::class, 'AvailableBooks']);
         // book List available
         Route::get('/search-available-books', [BookController::class, 'searchbooks']);
-        // search List
-        Route::get('/search-book-list', [BookController::class, 'searchbookList']);
+        // borrowed books List
+        Route::get('/book-list-borrowed', [BookController::class, 'bookListBorrowed']);
+        // returned books List
+        Route::get('/book-list-returned', [BookController::class, 'bookListReturned']);
+        // student borrow list
+        Route::get('/student-list-borrowed', [BookController::class, 'studentListBorrowed']);
+        // one student book list
+        Route::get('/one-student-book-borrowed-list/{id}', [BookController::class, 'studentBookBorrowed']);
 
 
         Route::get('notifications', function () {

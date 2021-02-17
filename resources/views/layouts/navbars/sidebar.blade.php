@@ -88,16 +88,22 @@
                     <p>{{ __('Available Books') }}</p>
                 </a>
               </li>
-            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
+            <li class="nav-item{{ $activePage == 'borrowedBookList' ? ' active' : '' }}">
+                <a class="nav-link" href="/book-list-borrowed">
                   <i class="material-icons">content_paste</i>
                     <p>{{ __('Borrowed Books') }}</p>
                 </a>
               </li>
-              <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
+              <li class="nav-item{{ $activePage == 'returnedBookList' ? ' active' : '' }}">
+                <a class="nav-link" href="/book-list-returned">
                   <i class="material-icons">content_paste</i>
                     <p>{{ __('Returned Book') }}</p>
+                </a>
+              </li>
+              <li class="nav-item{{ $activePage == 'studentListBorrowed' ? ' active' : '' }}">
+                <a class="nav-link" href="/student-list-borrowed">
+                  <i class="material-icons">content_paste</i>
+                    <p>{{ __('Student List Borrow') }}</p>
                 </a>
               </li>
           </ul>

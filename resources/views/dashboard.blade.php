@@ -11,7 +11,7 @@
                 <i class="fas fa-book"></i>
               </div>
               <p class="card-category">Books Borrowed</p>
-              <h3 class="card-title">49/50</h3>
+              <h3 class="card-title">{{ $bookBorrowedCount }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -27,7 +27,7 @@
                 <i class="far fa-user"></i>
               </div>
               <p class="card-category">Total Students</p>
-              <h3 class="card-title">34,245</h3>
+              <h3 class="card-title">{{ $studentCount }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -43,7 +43,7 @@
                 <i class="material-icons">info_outline</i>
               </div>
               <p class="card-category">Total student Borrowed</p>
-              <h3 class="card-title">75</h3>
+              <h3 class="card-title">{{ $bookBorrowedCount }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -59,7 +59,7 @@
                 <i class="fas fa-share-square"></i>
               </div>
               <p class="card-category">Total Borrowed</p>
-              <h3 class="card-title">+245</h3>
+              <h3 class="card-title">{{ $bookBorrowedCount }}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -102,61 +102,16 @@
             <div class="card-body">
               <div class="tab-content">
                 <div class="tab-pane active" id="profile">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                             1
-                            </label>
-                          </div>
-                        </td>
-                        <td>Sign contract for "What are conference organizers afraid of?"</td>
-                        <td class="text-right td-actions">
-                            <a href="">View</a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  {{-- borrowed --}}
+                  @livewire('dashboard.borrowed-books-list')
                 </div>
                 <div class="tab-pane" id="messages">
-                    <table class="table">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                 1
-                                </label>
-                              </div>
-                            </td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                            <td class="text-right td-actions">
-                                <a href="">View</a>
-                            </td>
-                          </tr>
-                        </tbody>
-                    </table>
+                    {{-- borrowed --}}
+                    @livewire('dashboard.returned-books-list')
                 </div>
                 <div class="tab-pane" id="settings">
-                    <table class="table">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                 1
-                                </label>
-                              </div>
-                            </td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                            <td class="text-right td-actions">
-                                <a href="">View</a>
-                            </td>
-                          </tr>
-                        </tbody>
-                    </table>
+                     {{-- available --}}
+                     @livewire('dashboard.available-books-list')
                 </div>
               </div>
             </div>
@@ -169,22 +124,8 @@
               <p class="card-category">All active student that borrowed books</p>
             </div>
             <div class="card-body table-responsive">
-              <table class="table table-hover">
-                <thead class="text-warning">
-                  <th>Student ID</th>
-                  <th>Name</th>
-                  <th>Year</th>
-                  <th># Of Book Borrowed</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dakota Rice</td>
-                    <td>4</td>
-                    <td>3</td>
-                  </tr>
-                </tbody>
-              </table>
+              {{-- available --}}
+              @livewire('dashboard.borrowed-student-list')
             </div>
           </div>
         </div>
