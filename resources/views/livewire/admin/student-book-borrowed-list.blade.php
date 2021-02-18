@@ -36,7 +36,7 @@
                                 <th>Category</th>
                                 <th>Borrow Status</th>
                                 <th>Date Borrowed</th>
-                                <th>Action</th>
+                                <th class='text-center'>Approve Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach($books as $key => $value)
@@ -50,11 +50,15 @@
                                             <td>{{ $value->bookCategoryTitle }}</td>
                                             <td class="text-primary">{{ $value->borrowStatus }}</td>
                                             <td class="text-primary">{{ $value->dateBorrowed }}</td>
-                                            <td class="text-primary">
-                                                <a href="#" class="btn btn-primary btn-round btn-just-icon">
-                                                    <i class="material-icons">visibility</i>
-                                                    <div class="ripple-container"></div>
-                                                </a>
+                                            <td class="text-center text-primary">
+                                                @if( $value->borrowStatus === 'borrowed')
+                                                    <p>-</p>
+                                                @else
+                                                    <button wire:click="approve" class="btn btn-primary btn-round btn-just-icon">
+                                                        <i class="material-icons">thumb_up</i>
+                                                        <div class="ripple-container"></div>
+                                                    </button>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

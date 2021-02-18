@@ -39,7 +39,7 @@ class BookController extends Controller
         BorrowBook::create([
             'book_id' => $request->bookId,
             'user_id' => Auth::user()->id,
-            'status' => 'Borrowed',
+            'status' => 'pending',
         ]);
 
         return response()->json(true, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);

@@ -70,4 +70,17 @@ class StudentBookBorrowedList extends Component
         return $data;
 
     }
+
+
+    public function approve(){
+
+        $affected = DB::table('borrow_books')
+                    ->where('user_id', $this->userId)
+                    ->update(['status' => "borrowed"]);
+
+
+        session()->flash('message', 'you have approved the student');
+
+        return redirect()->to('/one-student-book-borrowed-list/' . $this->userId);
+    }
 }
