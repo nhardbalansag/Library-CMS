@@ -35,8 +35,8 @@
             @include('layouts.page_templates.guest')
         @endguest
         @if (auth()->check())
-        <div class="fixed-plugin">
-          <div class="dropdown show-dropdown">
+        {{-- <div class="fixed-plugin"> --}}
+          {{-- <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
             </a>
@@ -54,8 +54,8 @@
                   </div>
                   <div class="clearfix"></div>
                 </a>
-              </li>
-              <li class="header-title">Images</li>
+              </li> --}}
+              {{-- <li class="header-title">Images</li>
               <li class="active">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                   <img src="{{ asset('material') }}/img/sidebar-1.jpg" alt="">
@@ -75,10 +75,10 @@
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                   <img src="{{ asset('material') }}/img/sidebar-4.jpg" alt="">
                 </a>
-              </li>
-            </ul>
+              </li> --}}
+            {{-- </ul>
           </div>
-        </div>
+        </div> --}}
         @endif
         <!--   Core JS Files   -->
         <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>

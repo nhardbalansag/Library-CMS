@@ -10,7 +10,7 @@
                 @endif
             </div>
             <div class="col-md-12">
-                <form wire:submit.prevent="searchBooks" class="form-horizontal">
+                <form wire:submit.prevent="searchStudent" class="form-horizontal">
                     <div  class="input-group no-border w-50">
                         <input wire:model.defer='student' type="text" name="bookSearch" class="form-control" placeholder="Search...">
                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
