@@ -121,16 +121,10 @@
         </a>
         <div class="collapse show" id="Students">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('profile.edit') }}">
-                  <span class="sidebar-mini"> <i class="fas fa-plus-square"></i> </span>
-                  <span class="sidebar-normal">{{ __('Add Student') }} </span>
-                </a>
-              </li>
-            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
+            <li class="nav-item{{ $activePage == 'studentListBorrowed' ? ' active' : '' }}">
+                <a class="nav-link" href="/view-all-registered-student">
                   <i class="material-icons">content_paste</i>
-                    <p>{{ __('Student Account Information') }}</p>
+                    <p>{{ __('Registered Student') }}</p>
                 </a>
               </li>
           </ul>

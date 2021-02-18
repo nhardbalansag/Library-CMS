@@ -73,4 +73,14 @@ class BookController extends Controller
 
         return view('pages.Book.student-book-borrowed', ['id' => $id]);
     }
+
+    public function registeredStudentList(){
+
+        return view('pages.student.view-all-student');
+    }
+
+    public function generateQr($id){
+
+        return view('pages.student.generate-qr', ['StudentId' => $id]);
+    }
 }
