@@ -83,4 +83,9 @@ class BookController extends Controller
 
         return view('pages.student.generate-qr', ['StudentId' => $id]);
     }
+
+    public function editBook($id){
+
+        return view('pages.Book.edit-book', ['BookId' => $id]);
+    }
 }
