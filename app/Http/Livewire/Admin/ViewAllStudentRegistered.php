@@ -21,7 +21,7 @@ class ViewAllStudentRegistered extends Component
                         ->paginate(10);
 
         if(!empty($this->student)){
-            $data['studentInfo'] = $this->searchBooks();
+            $data['studentInfo'] = $this->searchStudent();
         }
 
         $this->resetPage();
@@ -29,11 +29,11 @@ class ViewAllStudentRegistered extends Component
         return view('livewire.admin.view-all-student-registered', $data);
     }
 
-    public function searchBooks(){
+    public function searchStudent(){
 
         $data = DB::table('users')
                         ->where('role', 'student')
-                        ->where('id.', $this->student)
+                        ->where('id_number', 'like', '%' . $this->student . '%')
                         ->paginate(10);
 
         session()->flash('message', 'Your search returned ' . count($data) . ' item(s)');
