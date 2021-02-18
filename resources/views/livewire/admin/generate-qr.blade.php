@@ -12,13 +12,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Book List</h4>
-                        <p class="card-category">All book list</p>
+                        <h4 class="card-title ">QR Code</h4>
+                        <p class="card-category">Student Account Verification</p>
                     </div>
                     <div class="card-body">
                         <div class="text-center visible-print">
                             {!! QrCode::size(500)->generate($studentInfo->id_number); !!}
-                            <p>Scan me to return to the original page.</p>
+                            <p>Scan this to verify its You</p>
                         </div>
                     </div>
                 </div>
