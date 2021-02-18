@@ -121,7 +121,7 @@
         </a>
         <div class="collapse show" id="Students">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'studentListBorrowed' ? ' active' : '' }}">
+            <li class="nav-item{{ $activePage == 'viewAllStudent' ? ' active' : '' }}">
                 <a class="nav-link" href="/view-all-registered-student">
                   <i class="material-icons">content_paste</i>
                     <p>{{ __('Registered Student') }}</p>

@@ -8,6 +8,11 @@
                         <span>
                         <b> Success - </b> {{ session('message') }}</span>
                     </div>
+                @elseif(session()->has('error'))
+                    <div class="alert alert-danger">
+                        <span>
+                        <b> Success - </b> {{ session('error') }}</span>
+                    </div>
                 @endif
             </div>
             <div class="col-md-12">
@@ -36,7 +41,7 @@
                                 <th>Category</th>
                                 <th>Borrow Status</th>
                                 <th>Date Borrowed</th>
-                                <th class='text-center'>Approve Action</th>
+                                <th class='text-center'>Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach($books as $key => $value)
@@ -54,10 +59,14 @@
                                                 @if( $value->borrowStatus === 'borrowed')
                                                     <p>-</p>
                                                 @else
-                                                    <button wire:click="approve" class="btn btn-primary btn-round btn-just-icon">
-                                                        <i class="material-icons">thumb_up</i>
-                                                        <div class="ripple-container"></div>
-                                                    </button>
+                                                <div class=" row col-12">
+                                                    <div class="col-6">
+                                                        @livewire('admin.approve', ['borrowId' => $value->borrowId, 'userId' => $value->userId])
+                                                    </div>
+                                                    <div class="col-6">
+                                                        @livewire('admin.decline', ['borrowId' => $value->borrowId, 'userId' => $value->userId])
+                                                    </div>
+                                                </div>
                                                 @endif
                                             </td>
                                         </tr>

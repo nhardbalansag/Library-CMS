@@ -34,6 +34,7 @@
                                 <th>Category</th>
                                 <th>Status</th>
                                 <th>Date Created</th>
+                                <th class="text-center">Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach($books as $key => $value)
@@ -44,8 +45,21 @@
                                             </td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->bookCategoryTitle }}</td>
-                                            <td class="text-primary">{{ $value->status }}</td>
+                                            <td class=" font-weight-bold text-capitalize {{ $value->status === 'publish' ? 'text-success' : 'text-warning' }}">{{ $value->status }}</td>
                                             <td class="text-primary">{{ $value->created_at }}</td>
+                                            <td class="text-primary">
+                                                <div class=" row col-12">
+                                                    <div class="col-6">
+                                                        <a href="/edit-book/{{ $value->id }}" class="btn btn-primary btn-round btn-just-icon">
+                                                            <i class="material-icons">edit</i>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        @livewire('admin.delete-book', ['bookId' => $value->id])
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
