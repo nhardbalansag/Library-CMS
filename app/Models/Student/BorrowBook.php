@@ -12,6 +12,7 @@ class BorrowBook extends Model
     protected $fillable = [
         'book_id',
         'user_id',
-        'status'
+        'status',
+        'returnDate'
     ];
 }

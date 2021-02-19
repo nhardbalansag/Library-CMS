@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>{{ $value->id_number }}</td>
                                             <td>{{ $value->last_name . ', ' . $value->first_name }}</td>
-                                            <td>{{ $value->status === 'verified' ? 'Verified' : 'Not Verified' }}</td>
+                                            <td class="font-weight-bold {{  $value->status === 'verified' ? 'text-success' : 'text-danger' }}">{{ $value->status === 'verified' ? 'Verified' : 'Not Verified' }}</td>
                                             <td>{{ $value->role }}</td>
                                             <td class="text-primary">{{ $value->created_at }}</td>
                                             <td class="text-primary">

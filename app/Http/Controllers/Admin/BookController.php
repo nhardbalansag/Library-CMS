@@ -88,4 +88,9 @@ class BookController extends Controller
 
         return view('pages.Book.edit-book', ['BookId' => $id]);
     }
+
+    public function viewBorrowed($id){
+
+        return view('pages.Book.view-borrowed-book', ['BorrowId' => $id]);
+    }
 }

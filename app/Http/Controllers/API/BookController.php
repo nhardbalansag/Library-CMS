@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student\BorrowBook;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class BookController extends Controller
 {
@@ -36,13 +37,19 @@ class BookController extends Controller
 
     public function getBook(Request $request){
 
+        $mutable = Carbon::now();
+        $modifiedMutable = $mutable->add(4, 'day');
+
         BorrowBook::create([
             'book_id' => $request->bookId,
             'user_id' => Auth::user()->id,
             'status' => 'pending',
+            'returnDate' => $modifiedMutable
         ]);
 
-        return response()->json(true, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        $response = true;
+
+        return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
 
@@ -51,7 +58,7 @@ class BookController extends Controller
         $data = DB::table('borrow_books')
             ->join('books', 'books.id', '=', 'borrow_books.book_id')
             ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
-            ->select('books.*', 'book_categories.title as bookCategoryTitle','borrow_books.id as borrowId', 'borrow_books.status as borrowStatus', 'borrow_books.created_at as dateBorrowed')
+            ->select('books.*', 'book_categories.title as bookCategoryTitle','borrow_books.id as borrowId', 'borrow_books.status as borrowStatus', 'borrow_books.created_at as dateBorrowed', 'borrow_books.returnDate as dateReturned')
             ->where('borrow_books.user_id', Auth::user()->id)
             ->paginate($limit);
 
