@@ -61,7 +61,7 @@
                                                 @else
                                                 <div class=" row col-12">
                                                     <div class="col-6">
-                                                        @livewire('admin.approve', ['borrowId' => $value->borrowId, 'userId' => $value->userId])
+                                                        @livewire('admin.approve', ['borrowId' => $value->borrowId, 'userId' => $value->userId, 'bookId' => $value->id])
                                                     </div>
                                                     <div class="col-6">
                                                         @livewire('admin.decline', ['borrowId' => $value->borrowId, 'userId' => $value->userId])

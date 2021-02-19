@@ -34,6 +34,8 @@
                                 <th>Category</th>
                                 <th>Status</th>
                                 <th>Date Created</th>
+                                <th>Date to Return</th>
+                                <th>Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach($books as $key => $value)
@@ -46,6 +48,13 @@
                                             <td>{{ $value->bookCategoryTitle }}</td>
                                             <td class="text-primary">{{ $value->borrowStatus }}</td>
                                             <td class="text-primary">{{ $value->created_at }}</td>
+                                            <td class="text-primary">{{ $value->dateReturned }}</td>
+                                            <td class="text-primary">
+                                                <a href="/view-borrowed-book/{{ $value->borrowId }}" class="btn btn-primary btn-round btn-just-icon">
+                                                    <i class="material-icons">visibility</i>
+                                                    <div class="ripple-container"></div>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

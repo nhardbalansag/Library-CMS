@@ -14,7 +14,7 @@ class CreateBorrowBooksTable extends Migration
     public function up()
     {
         Schema::create('borrow_books', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
              //book id
              $table->integer('book_id')->unsigned();
              $table->foreign('book_id')
@@ -30,6 +30,7 @@ class CreateBorrowBooksTable extends Migration
               ->onDelete('cascade')
               ->onUpdate('cascade');
               $table->string('status');
+              $table->dateTime('returnDate');
             $table->timestamps();
         });
     }

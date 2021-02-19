@@ -15,6 +15,10 @@ class GenerateQr extends Component
 
         $data['studentInfo'] = DB::table('users')->where('id', $this->StudentId)->first();
 
+        $affected = DB::table('users')
+                    ->where('id', $this->StudentId)
+                    ->update(['status' => "verified"]);
+
         return view('livewire.admin.generate-qr', $data);
     }
 }

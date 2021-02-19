@@ -34,6 +34,7 @@
                                 <th>Category</th>
                                 <th>Status</th>
                                 <th>Date Created</th>
+                                <th>Date returned</th>
                                 </thead>
                                 <tbody>
                                     @foreach($books as $key => $value)
@@ -46,6 +47,7 @@
                                             <td>{{ $value->bookCategoryTitle }}</td>
                                             <td class="text-primary">{{ $value->borrowStatus }}</td>
                                             <td class="text-primary">{{ $value->created_at }}</td>
+                                            <td class="text-primary">{{ $value->returnbookDate }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
