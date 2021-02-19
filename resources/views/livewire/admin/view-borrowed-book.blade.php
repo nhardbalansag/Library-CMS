@@ -10,15 +10,6 @@
                 @endif
             </div>
             <div class="col-md-12">
-                <form wire:submit.prevent="searchBooks" class="form-horizontal">
-                    <div  class="input-group no-border w-50">
-                        <input wire:model.defer='booktitle' type="text" name="bookSearch" class="form-control" placeholder="Search...">
-                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                            <i class="material-icons">search</i>
-                            <div class="ripple-container"></div>
-                        </button>
-                    </div>
-                </form>
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title ">Book List</h4>
