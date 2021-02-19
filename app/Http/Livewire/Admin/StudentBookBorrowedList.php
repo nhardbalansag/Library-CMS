@@ -63,7 +63,7 @@ class StudentBookBorrowedList extends Component
                     )
                 ->where('books.title', 'like', '%' . $this->booktitle . '%')
                 ->where('users.id', $this->userId)
-                ->get();
+                ->paginate(10);
 
         session()->flash('message', 'Your search returned ' . count($data) . ' item(s)');
 
