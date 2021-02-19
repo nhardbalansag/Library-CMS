@@ -36,7 +36,7 @@ class StudentController extends Controller
                 $password = Hash::check($enteredPassword, $DBpassword);
                 $userinfo = User::where('email', $request->email)->first();
 
-                if($password && $enteredEmail === $DBemail){
+                if($password && $enteredEmail === $DBemail && $userinfo->status === "verified"){
 
                     $token = $userinfo->createToken('authToken')->accessToken;
 
