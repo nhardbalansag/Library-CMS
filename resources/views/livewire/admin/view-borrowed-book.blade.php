@@ -35,13 +35,17 @@
                                         <td class="text-primary">{{ $book->borrowStatus }}</td>
                                         <td class="text-primary">{{ $book->created_at }}</td>
                                         <td class="text-primary">{{ $book->returnDate }}</td>
-                                        <td class="text-primary">
-                                            <div class="d-flex justify-content-center">
-                                                <button wire:click="returnBook" class="btn btn-primary btn-round btn-just-icon">
-                                                    <i class="material-icons">thumb_up</i>
-                                                    <div class="ripple-container"></div>
-                                                </button>
-                                            </div>
+                                        <td class="text-center text-primary">
+                                            @if($book->borrowStatus === 'return')
+                                                <p>-</p>
+                                            @else
+                                                <div class="d-flex justify-content-center">
+                                                    <button wire:click="returnBook" class="btn btn-primary btn-round btn-just-icon">
+                                                        <i class="material-icons">reply</i>
+                                                        <div class="ripple-container"></div>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                     </tr>
                                 </tbody>

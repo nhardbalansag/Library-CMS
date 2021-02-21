@@ -93,4 +93,15 @@ class BookController extends Controller
 
         return view('pages.Book.view-borrowed-book', ['BorrowId' => $id]);
     }
+
+    public function viewAllBookBycategory($id){
+
+        $data['book_categories'] = DB::table('book_categories')->where('id', $id)->first();
+
+        if(!$data['book_categories']){
+            abort(404);
+        }
+
+        return view('pages.Book.book-list-per-category', ['BookCategoryId' => $id, 'bookCategoryTitle' => $data['book_categories']->title]);
+    }
 }

@@ -24,6 +24,17 @@ class CreateBooksTable extends Migration
             ->onUpdate('cascade');
             $table->string('title');
             $table->string('description');
+            $table->string('language');
+            $table->string('editor');
+            $table->string('translator');
+            $table->string('reviewer');
+            $table->string('illustrator');
+            $table->string('contributor');
+            $table->string('publisher');
+            $table->string('publisher_city');
+            $table->date('publication_date');
+            $table->string('isbn');
+            $table->string('author');
             $table->string('status');
             $table->string('image_path');
             $table->integer('book_inventory_count');

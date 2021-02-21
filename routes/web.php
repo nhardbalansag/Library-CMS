@@ -57,9 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/view-all-registered-student', [BookController::class, 'registeredStudentList']);
         //generate QR
         Route::get('/view-all-registered-student/generate-Qr/{id}', [BookController::class, 'generateQr']);
-         //edit book
-         Route::get('/edit-book/{id}', [BookController::class, 'editBook']);
-         Route::get(' /view-borrowed-book/{id}', [BookController::class, 'viewBorrowed']);
+        //edit book
+        Route::get('/edit-book/{id}', [BookController::class, 'editBook']);
+        Route::get(' /view-borrowed-book/{id}', [BookController::class, 'viewBorrowed']);
+        // view category
+        Route::get('/book/view-category/{id}', [BookController::class, 'viewAllBookBycategory']);
+
 
 
         Route::get('notifications', function () {

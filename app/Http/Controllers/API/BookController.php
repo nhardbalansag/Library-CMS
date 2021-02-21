@@ -40,14 +40,22 @@ class BookController extends Controller
         $mutable = Carbon::now();
         $modifiedMutable = $mutable->add(4, 'day');
 
-        BorrowBook::create([
-            'book_id' => $request->bookId,
-            'user_id' => Auth::user()->id,
-            'status' => 'pending',
-            'returnDate' => $modifiedMutable
-        ]);
+        $bookCount  = DB::table('books')->where('id', $request->bookId)->first();
 
-        $response = true;
+        if($bookCount->book_inventory_count === 0){
+
+            $response = false;
+
+        }else{
+            BorrowBook::create([
+                'book_id' => $request->bookId,
+                'user_id' => Auth::user()->id,
+                'status' => 'pending',
+                'returnDate' => $modifiedMutable
+            ]);
+
+            $response = true;
+        }
 
         return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
