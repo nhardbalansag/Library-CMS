@@ -25,6 +25,16 @@
                         </button>
                     </div>
                 </form>
+                <div>
+                    <button wire:click="descending" class="btn btn-primary btn-round btn-just-icon">
+                        <i class="fas fa-sort-amount-up"></i>
+                        <div class="ripple-container"></div>
+                    </button>
+                    <button wire:click="ascending" class="btn btn-primary btn-round btn-just-icon">
+                        <i class="fas fa-sort-amount-down-alt"></i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </div>
                 <div class="content">
                     <div class="container-fluid">
                       <div class="row">

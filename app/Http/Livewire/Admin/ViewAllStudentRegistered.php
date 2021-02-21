@@ -41,4 +41,30 @@ class ViewAllStudentRegistered extends Component
         return $data;
 
     }
+
+    public function descending(){
+
+        $data['studentInfo'] = DB::table('users')
+                            ->where('role', 'student')
+                            ->orderBy('created_at','DESC')
+                            ->paginate(10);
+
+        session()->flash('message', 'Descending List');
+
+        return $data;
+
+    }
+
+    public function ascending(){
+
+        $data['studentInfo'] = DB::table('users')
+                            ->where('role', 'student')
+                            ->orderBy('created_at','ASC')
+                            ->paginate(10);
+
+        session()->flash('message', 'Ascending List');
+
+        return $data;
+
+    }
 }

@@ -45,4 +45,34 @@ class ViewAllAvailableBooks extends Component
 
     }
 
+    public function descending(){
+
+        $data['books']  = DB::table('books')
+                        ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
+                        ->select('books.*', 'book_categories.title as bookCategoryTitle')
+                        ->where('books.status', 'publish')
+                        ->orderBy('books.created_at','DESC')
+                        ->paginate(10);
+
+        session()->flash('message', 'Descending List');
+
+        return $data;
+
+    }
+
+    public function ascending(){
+
+        $data['books']  = DB::table('books')
+                        ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
+                        ->select('books.*', 'book_categories.title as bookCategoryTitle')
+                        ->where('books.status', 'publish')
+                        ->orderBy('books.created_at','ASC')
+                        ->paginate(10);
+
+        session()->flash('message', 'Ascending List');
+
+        return $data;
+
+    }
+
 }
