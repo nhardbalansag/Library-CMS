@@ -12,6 +12,12 @@
               <p>{{ __('Dashboard') }}</p>
           </a>
         </li>
+        <li class="nav-item{{ $activePage == 'feedback' ? ' active' : '' }}">
+            <a class="nav-link" href="/feedback-analysis">
+              <i class="material-icons">feedback</i>
+                <p>{{ __('Feedback Analysis') }}</p>
+            </a>
+          </li>
 
         {{-- user information handling --}}
         <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">

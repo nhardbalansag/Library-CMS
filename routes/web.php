@@ -62,7 +62,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get(' /view-borrowed-book/{id}', [BookController::class, 'viewBorrowed']);
         // view category
         Route::get('/book/view-category/{id}', [BookController::class, 'viewAllBookBycategory']);
-
+        // view category
+        Route::get('/feedback-analysis', [BookController::class, 'feedbackAnalysis']);
 
 
         Route::get('notifications', function () {

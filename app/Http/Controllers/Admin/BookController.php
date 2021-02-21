@@ -104,4 +104,9 @@ class BookController extends Controller
 
         return view('pages.Book.book-list-per-category', ['BookCategoryId' => $id, 'bookCategoryTitle' => $data['book_categories']->title]);
     }
+
+    public function feedbackAnalysis(){
+
+        return view('pages.Book.feedback-analysis');
+    }
 }

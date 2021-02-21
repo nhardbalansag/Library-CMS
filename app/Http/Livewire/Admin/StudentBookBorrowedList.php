@@ -111,4 +111,36 @@ class StudentBookBorrowedList extends Component
 
     }
 
+    public function descending(){
+
+        $data = DB::table('books')
+                ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
+                ->select('books.*', 'book_categories.title as bookCategoryTitle')
+                ->where('books.title', 'like', '%' . $this->booktitle . '%')
+                ->where('book_categories.id', $this->BookCategoryId)
+                ->orderBy('books.created_at','DESC')
+                ->paginate(10);
+
+        session()->flash('message', 'Descending List');
+
+        return $data;
+
+    }
+
+    public function ascending(){
+
+        $data = DB::table('books')
+                ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
+                ->select('books.*', 'book_categories.title as bookCategoryTitle')
+                ->where('books.title', 'like', '%' . $this->booktitle . '%')
+                ->where('book_categories.id', $this->BookCategoryId)
+                ->orderBy('books.created_at','ASC')
+                ->paginate(10);
+
+        session()->flash('message', 'Ascending List');
+
+        return $data;
+
+    }
+
 }
