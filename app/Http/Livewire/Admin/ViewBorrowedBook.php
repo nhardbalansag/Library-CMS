@@ -44,6 +44,18 @@ class ViewBorrowedBook extends Component
                     ->where('id', $this->BorrowId)
                     ->update(['status' => 'return']);
 
+        $book = DB::table('borrow_books')
+                ->join('books', 'books.id', '=', 'borrow_books.book_id')
+                ->where('borrow_books.id', $this->BorrowId)
+                ->select('books.*')
+                ->first();
+
+        $count = $book->book_inventory_count + 1;
+
+        $affected = DB::table('books')
+                    ->where('id', $book->id)
+                    ->update(['book_inventory_count' => $count]);
+
         $message = 'Successfully move book to Return';
         session()->flash('message', $message);
     }

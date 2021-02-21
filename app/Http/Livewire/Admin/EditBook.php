@@ -11,7 +11,8 @@ class EditBook extends Component
 {
     use WithFileUploads;
 
-    public $BookCategoryId, $title, $description, $status, $image_path, $book_inventory_count;
+    public $BookCategoryId, $title, $description, $status, $image_path, $book_inventory_count, $language, $editor, $translator, $reviewer, $illustrator, $contributor, $publisher, $publisher_city, $publication_date, $isbn, $author;
+
 
     public $BookId;
 
@@ -42,6 +43,17 @@ class EditBook extends Component
                     'BookCategoryId' =>  $this->BookCategoryId,
                     'title' => $this->title,
                     'description' => $this->description,
+                    'language' => $this->language,
+                    'editor' => $this->editor,
+                    'translator' => $this->translator,
+                    'reviewer' => $this->reviewer,
+                    'illustrator' => $this->illustrator,
+                    'contributor' => $this->contributor,
+                    'publisher' => $this->publisher,
+                    'publisher_city' => $this->publisher_city,
+                    'publication_date' => $this->publication_date,
+                    'isbn' => $this->isbn,
+                    'author' => $this->author,
                     'status' => $this->status,
                     'image_path' => $this->image_path,
                     'book_inventory_count' => $this->book_inventory_count

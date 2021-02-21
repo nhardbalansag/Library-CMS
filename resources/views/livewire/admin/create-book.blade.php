@@ -93,6 +93,107 @@
                                     </div>
                                 </div>
                             </div>
+                            {{--  --}}
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('language') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('language') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="language" class="form-control{{ $errors->has('language') ? ' is-invalid' : '' }}" name="language" type="text"   placeholder="{{ __('language') }}"  required />
+                                        @error('language') <span class="error text-danger">{{ $language }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('editor') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('editor') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="editor" class="form-control{{ $errors->has('editor') ? ' is-invalid' : '' }}" name="editor" type="text"   placeholder="{{ __('editor') }}"  required />
+                                        @error('editor') <span class="error text-danger">{{ $editor }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('translator') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('translator') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="translator" class="form-control{{ $errors->has('translator') ? ' is-invalid' : '' }}" name="email" type="text"   placeholder="{{ __('translator') }}"  required />
+                                        @error('translator') <span class="error text-danger">{{ $translator }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('reviewer') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('reviewer') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="reviewer" class="form-control{{ $errors->has('reviewer') ? ' is-invalid' : '' }}" name="reviewer" type="text"   placeholder="{{ __('reviewer') }}"  required />
+                                        @error('reviewer') <span class="error text-danger">{{ $reviewer }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('illustrator') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('illustrator') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="illustrator" class="form-control{{ $errors->has('illustrator') ? ' is-invalid' : '' }}" name="illustrator" type="text"   placeholder="{{ __('illustrator') }}"  required />
+                                        @error('illustrator') <span class="error text-danger">{{ $illustrator }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('contributor') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('contributor') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="contributor" class="form-control{{ $errors->has('contributor') ? ' is-invalid' : '' }}" name="contributor" type="text"   placeholder="{{ __('contributor') }}"  required />
+                                        @error('contributor') <span class="error text-danger">{{ $contributor }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('publisher') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('publisher') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="publisher" class="form-control{{ $errors->has('publisher') ? ' is-invalid' : '' }}" name="publisher" type="text"   placeholder="{{ __('publisher') }}"  required />
+                                        @error('publisher') <span class="error text-danger">{{ $publisher }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('publisher_city') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('publisher_city') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="publisher_city" class="form-control{{ $errors->has('publisher_city') ? ' is-invalid' : '' }}" name="publisher_city" type="text"   placeholder="{{ __('publisher_city') }}"  required />
+                                        @error('publisher_city') <span class="error text-danger">{{ $publisher_city }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('publication_date') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('publication_date') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="publication_date" class="form-control{{ $errors->has('publication_date') ? ' is-invalid' : '' }}" name="publication_date" type="date"   placeholder="{{ __('publication_date') }}"  required />
+                                        @error('publication_date') <span class="error text-danger">{{ $publication_date }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('isbn') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('isbn') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="isbn" class="form-control{{ $errors->has('isbn') ? ' is-invalid' : '' }}" name="isbn" type="text"   placeholder="{{ __('isbn') }}"  required />
+                                        @error('isbn') <span class="error text-danger">{{ $isbn }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">{{ __('author') }}</label>
+                                <div class="col-sm-7">
+                                    <div class="form-group{{ $errors->has('author') ? ' has-danger' : '' }}">
+                                        <input wire:model.defer="author" class="form-control{{ $errors->has('author') ? ' is-invalid' : '' }}" name="author" type="text"   placeholder="{{ __('author') }}"  required />
+                                        @error('author') <span class="error text-danger">{{ $author }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            {{--  --}}
                             <div class="row">
                                 <label class="col-sm-2 col-form-label">{{ __('Inventory Count') }}</label>
                                 <div class="col-sm-7">

@@ -21,8 +21,8 @@
                 </form>
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Book List</h4>
-                        <p class="card-category">All book list</p>
+                        <h4 class="card-title ">Student List</h4>
+                        <p class="card-category">All Student list</p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -30,11 +30,6 @@
                                 <thead class=" text-primary">
                                 <th>Student Number</th>
                                 <th>Student Name</th>
-                                <th>Book Thumbnail</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Borrow Status</th>
-                                <th>Date Borrowed</th>
                                 <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -42,13 +37,6 @@
                                         <tr>
                                             <td>{{ $value->id_number }}</td>
                                             <td>{{ $value->last_name . ', ' . $value->first_name }}</td>
-                                            <td>
-                                                <img width="100" src="{{asset('storage/' . $value->image_path) }}" alt="thumbnail">
-                                            </td>
-                                            <td>{{ $value->title }}</td>
-                                            <td>{{ $value->bookCategoryTitle }}</td>
-                                            <td class="text-primary">{{ $value->borrowStatus }}</td>
-                                            <td class="text-primary">{{ $value->dateBorrowed }}</td>
                                             <td class="text-primary">
                                                 <a href="/one-student-book-borrowed-list/{{ $value->userId }}" class="btn btn-primary btn-round btn-just-icon">
                                                     <i class="material-icons">visibility</i>

@@ -16,6 +16,25 @@ class StudentBookBorrowedList extends Component
     public function render()
     {
 
+        $data['totalReturn'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'return')
+                            ->count();
+
+        $data['totalBorrow'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'borrowed')
+                            ->count();
+
+        $data['totalPending'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'pending')
+                            ->count();
+
+        $data['totalBooks'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->count();
+
         $data['books'] = DB::table('borrow_books')
                         ->join('books', 'books.id', '=', 'borrow_books.book_id')
                         ->join('book_categories', 'book_categories.id', '=', 'books.BookCategoryId')
@@ -32,6 +51,7 @@ class StudentBookBorrowedList extends Component
                             'users.id as userId'
                             )
                         ->where('users.id', $this->userId)
+                        ->orderByDesc('dateBorrowed')
                         ->paginate(10);
 
         if(!empty($this->booktitle)){
@@ -44,6 +64,25 @@ class StudentBookBorrowedList extends Component
     }
 
     public function searchBooks(){
+
+        $data['totalReturn'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'return')
+                            ->count();
+
+        $data['totalBorrow'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'borrowed')
+                            ->count();
+
+        $data['totalPending'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->where('borrow_books.status', 'pending')
+                            ->count();
+
+        $data['totalBooks'] = DB::table('borrow_books')
+                            ->where('borrow_books.user_id', $this->userId)
+                            ->count();
 
         $data = DB::table('borrow_books')
                 ->join('books', 'books.id', '=', 'borrow_books.book_id')
@@ -63,6 +102,7 @@ class StudentBookBorrowedList extends Component
                     )
                 ->where('books.title', 'like', '%' . $this->booktitle . '%')
                 ->where('users.id', $this->userId)
+                ->orderByDesc('dateBorrowed')
                 ->paginate(10);
 
         session()->flash('message', 'Your search returned ' . count($data) . ' item(s)');

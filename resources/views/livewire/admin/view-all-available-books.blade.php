@@ -32,6 +32,7 @@
                                 <th>Thumbnail</th>
                                 <th>Title</th>
                                 <th>Category</th>
+                                <th class="text-center ">Book Left</th>
                                 <th>Status</th>
                                 <th>Date Created</th>
                                 </thead>
@@ -44,6 +45,7 @@
                                             </td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->bookCategoryTitle }}</td>
+                                            <td class="text-center text-primary">{{ $value->book_inventory_count }}</td>
                                             <td class="text-primary">{{ $value->status }}</td>
                                             <td class="text-primary">{{ $value->created_at }}</td>
                                         </tr>

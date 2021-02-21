@@ -25,6 +25,75 @@
                         </button>
                     </div>
                 </form>
+                <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                          <div class="card card-stats">
+                            <div class="card-header card-header-warning card-header-icon">
+                              <div class="card-icon">
+                                <i class="fas fa-book"></i>
+                              </div>
+                              <p class="card-category">Returned</p>
+                              <h3 class="card-title">{{ $totalReturn }}</h3>
+                            </div>
+                            <div class="card-footer">
+                              <div class="stats">
+                                <i class="fas fa-share"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                              <div class="card-header card-header-warning card-header-icon">
+                                <div class="card-icon">
+                                  <i class="fas fa-book"></i>
+                                </div>
+                                <p class="card-category">Borrowed</p>
+                                <h3 class="card-title">{{ $totalBorrow }}</h3>
+                              </div>
+                              <div class="card-footer">
+                                <div class="stats">
+                                  <i class="fas fa-share"></i>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                              <div class="card-header card-header-warning card-header-icon">
+                                <div class="card-icon">
+                                  <i class="fas fa-book"></i>
+                                </div>
+                                <p class="card-category">Pending</p>
+                                <h3 class="card-title">{{ $totalPending }}</h3>
+                              </div>
+                              <div class="card-footer">
+                                <div class="stats">
+                                  <i class="fas fa-share"></i>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                              <div class="card-header card-header-warning card-header-icon">
+                                <div class="card-icon">
+                                  <i class="fas fa-book"></i>
+                                </div>
+                                <p class="card-category">Total</p>
+                                <h3 class="card-title">{{ $totalBooks }}</h3>
+                              </div>
+                              <div class="card-footer">
+                                <div class="stats">
+                                  <i class="fas fa-share"></i>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title ">Book List</h4>
@@ -56,17 +125,22 @@
                                             <td class="text-primary">{{ $value->borrowStatus }}</td>
                                             <td class="text-primary">{{ $value->dateBorrowed }}</td>
                                             <td class="text-center text-primary">
-                                                @if( $value->borrowStatus === 'borrowed')
+                                                @if($value->borrowStatus === 'borrowed')
+                                                    <a href="/view-borrowed-book/{{ $value->borrowId }}" class="btn btn-primary btn-round btn-just-icon">
+                                                        <i class="material-icons">visibility</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                @elseif($value->borrowStatus === 'return')
                                                     <p>-</p>
                                                 @else
-                                                <div class=" row col-12">
-                                                    <div class="col-6">
-                                                        @livewire('admin.approve', ['borrowId' => $value->borrowId, 'userId' => $value->userId, 'bookId' => $value->id])
+                                                    <div class=" row col-12">
+                                                        <div class="col-6">
+                                                            @livewire('admin.approve', ['borrowId' => $value->borrowId, 'userId' => $value->userId, 'bookId' => $value->id])
+                                                        </div>
+                                                        <div class="col-6">
+                                                            @livewire('admin.decline', ['borrowId' => $value->borrowId, 'userId' => $value->userId])
+                                                        </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        @livewire('admin.decline', ['borrowId' => $value->borrowId, 'userId' => $value->userId])
-                                                    </div>
-                                                </div>
                                                 @endif
                                             </td>
                                         </tr>
@@ -108,3 +182,10 @@
         @include('component.loading-state')
     </div>
 </div>
+
+
+
+
+
+
+
