@@ -89,14 +89,23 @@ class BookController extends Controller
 
     public function rateBookReturn(Request $request){
 
-        RateBook::create([
-            'user_id' => Auth::user()->id,
-            'borrow_id' => $request->borrrowId,
-            'rated' => true,
-            'book_id' => $request->bookId
-        ]);
+        $countRate = DB::table('rate_books')
+                    ->where('book_id', $request->bookId)
+                    ->where('user_id', Auth::user()->id)
+                    ->count();
 
-        $response = "thank you for your rating";
+            if($countRate > 0){
+                $response = "You have already rate this Book.";
+            }else{
+                RateBook::create([
+                    'user_id' => Auth::user()->id,
+                    'borrow_id' => $request->borrrowId,
+                    'rated' => true,
+                    'book_id' => $request->bookId
+                ]);
+
+                $response = "thank you for your rating";
+            }
 
         return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
