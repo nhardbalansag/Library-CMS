@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Student\BorrowBook;
+use App\Models\Student\{BorrowBook, RateBook};
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -85,6 +85,20 @@ class BookController extends Controller
 
         return response()->json($result, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
 
+    }
+
+    public function rateBookReturn(Request $request){
+
+        RateBook::create([
+            'user_id' => Auth::user()->id,
+            'borrow_id' => $request->borrrowId,
+            'rated' => true,
+            'book_id' => $request->bookId
+        ]);
+
+        $response = "thank you for your rating";
+
+        return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
 }
