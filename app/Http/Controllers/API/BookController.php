@@ -101,4 +101,21 @@ class BookController extends Controller
         return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
+    public function ratingsPercentage(Request $request){
+
+        $totalReturn =  DB::table('borrow_books')
+                        ->where('status', 'return')
+                        ->where('book_id', $request->book_id)
+                        ->count();
+
+        $totalRate =  DB::table('rate_books')
+                        ->where('rated', '1')
+                        ->where('book_id', $request->book_id)
+                        ->count();
+
+        $percentage = $totalReturn ? (($totalRate * 100) / $totalReturn) : (0);
+
+        return response()->json(ceil($percentage), 200, [], JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
 }

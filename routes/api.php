@@ -31,4 +31,5 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('/get-mybook/{limit}', [BookController::class, 'myBooks']);
     Route::get('/search-books/{limit}/{data}', [BookController::class, 'searchBooks']);
     Route::post('/ratings/rate-books', [BookController::class, 'rateBookReturn']);
+    Route::get('/ratings/percentage', [BookController::class, 'ratingsPercentage']);
 });
